@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <script type="text/javascript" src="{{ url_for('static', filename='shows.js') }}"></script>
+{% endblock %}
+{% block content %}
+<table id="myTable">
+    <thead>
+		<tr>
+			<th width="80%">Name</th>
+			<th width="10%">Date</th>
+			<th width="10%">Size</th>
+		</tr>
+	</thead>
+    <tbody>
+        {% for item in items %}
+            <tr>
+                <td>
+                    <a href="{{ item['url'] }}">{{ item['name'] }}</a>
+                </td>
+                <td>
+                    {{ item['date'] }}
+                </td>
+                <td>
+                    {{ item['size'] }}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<a href="{{ edit_url }}">Click here to edit shows shown ...</a>
+{% endblock %}

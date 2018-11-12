@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery.multi-select.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery.multi-select.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='edit.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <a href="..">Click here to go back ...</a>
+    <select multiple="multiple" id="my-select" name="my-select[]">
+      <option value='elem_1'>Loading ...</option>
+    </select>
+{% endblock %}
