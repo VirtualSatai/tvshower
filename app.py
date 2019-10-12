@@ -6,9 +6,11 @@ import os
 from datetime import datetime
 from stat import *
 
+URL_BASE = "https://satai.dk"
+
 app = Flask(__name__)
 
-items = [{"url": "https://satai.dk", "name": "Loading ...", "date": "...", "size": "..."}]
+items = [{"url": ("%s" % URL_BASE), "name": "Loading ...", "date": "...", "size": "..."}]
 source = '/mnt/Series/'
 
 
@@ -80,7 +82,7 @@ def get_content():
     for k, v in list(all_files.items()):
         ts, size = v
         res.append({
-            "url": "https://satai.dk/tv/Series/" + "/".join(k.split("/")[3:]),
+            "url": URL_BASE + "/tv/Series/" + "/".join(k.split("/")[3:]),
             "name": k.split("/")[-1],
             "date": datetime.utcfromtimestamp(ts).strftime("%Y-%m-%d"),
             "size": formatSize(size)
